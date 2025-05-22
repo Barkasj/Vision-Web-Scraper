@@ -46,7 +46,7 @@ Berikut adalah contoh **README.md** lengkap untuk project “Diffbot-like Comput
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/yourusername/diffbot-cv-scraper.git
+   git clone https://github.com/Barkasj/Vision-Web-Scraper.git
    cd diffbot-cv-scraper
    ```
 
