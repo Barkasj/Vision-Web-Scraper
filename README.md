@@ -5,8 +5,6 @@ Berikut adalah contoh **README.md** lengkap untuk project “Diffbot-like Comput
 
 # Diffbot-like Computer Vision Web Scraper
 
-![Architecture Diagram Overview
-
 **Diffbot-like Computer Vision Web Scraper** adalah platform open source yang menggabungkan computer vision, headless browser, dan NLP untuk mengekstrak data produk, artikel, dan knowledge graph dari website e-commerce atau berita secara otomatis—meskipun struktur HTML berubah-ubah.
 
 ## Fitur Utama
@@ -22,7 +20,7 @@ Berikut adalah contoh **README.md** lengkap untuk project “Diffbot-like Comput
 
 ## Arsitektur
 
-![System Architecture](docs/system-architecture**: Menerima permintaan ekstraksi.
+![System Architecture](docs/system-architecture.png): Menerima permintaan ekstraksi.
 2. **Headless Browser Cluster**: Merender halaman dan mengambil screenshot/HTML.
 3. **CV Model Serving**: Deteksi elemen penting pada screenshot.
 4. **OCR & NLP Engine**: Ekstraksi dan analisis teks.

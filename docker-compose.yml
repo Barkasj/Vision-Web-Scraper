@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080" # Assuming backend runs on port 8080
+    environment:
+      # Add any backend-specific environment variables here from .env.example
+      - NEO4J_URI=neo4j://neo4j:7687
+    depends_on:
+      - neo4j
+      - renderer
+      - cv_service
+    volumes:
+      - ./backend:/app
+
+  renderer:
+    build: ./renderer
+    # If renderer exposes a port, map it here. Otherwise, it's used internally.
+    # ports:
+    #   - "3000:3000" 
+    environment:
+      # Add any renderer-specific environment variables here
+      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright # To persist browser downloads
+    volumes:
+      - ./renderer:/app
+      - playwright_cache:/ms-playwright
+
+  cv_service: # Computer Vision service
+    build: ./cv
+    # If CV service exposes a port (e.g., for a Flask/FastAPI server), map it here.
+    # ports:
+    #   - "5000:5000"
+    environment:
+      # Add any CV-specific environment variables here
+      # - CUDA_VISIBLE_DEVICES=0 # Optional: if GPU is available
+    volumes:
+      - ./cv:/app
+      # Optional: if models are large and downloaded to a specific path
+      # - cv_models:/app/models 
+
+  neo4j:
+    image: neo4j:4.4 # Using a specific version, can be latest
+    ports:
+      - "7474:7474" # Neo4j Browser
+      - "7687:7687" # Bolt protocol
+    volumes:
+      - neo4j_data:/data
+    environment:
+      - NEO4J_AUTH=neo4j/password # Default credentials, change in production
+
+volumes:
+  neo4j_data:
+  playwright_cache:
+  # cv_models: # Uncomment if used above
