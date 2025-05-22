@@ -186,4 +186,3 @@ Buka [Issues](https://github.com/yourusername/diffbot-cv-scraper/issues) atau em
 **Happy Scraping! 🚀**
 
 ---
-Jawaban dari Perplexity: pplx.ai/share
