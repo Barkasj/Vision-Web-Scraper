@@ -1,0 +1,7 @@
+opencv-python-headless
+
+# For object detection models (choose one or more as needed)
+# torch
+# torchvision
+# tensorflow
+# ultralytics (for YOLOv8)
